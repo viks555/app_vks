@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APP BHAVCOPY-ZERODHA</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <style type="text/css">
+      *, *:before, *:after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgba(64,224,208,.3);
+      font-family: 'Sarabun', sans-serif;
+    }
+
+    table {
+      max-width: 5000px;
+      margin: 10px auto;
+      padding: 4px;
+    }
+
+
+
+    thead th {
+      font-weight: 400;
+      
+      background-color: #4CAF50;
+      color: white;
+      
+    }
+
+    tr {
+      background: #f4f7f8;
+      border-bottom: 1px solid #FFF;
+      margin-bottom: 5px;
+    }
+
+    tr:nth-child(even) {
+      background: #e8eeef;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 20px;
+      font-weight: 300;
+    }
+
+    tfoot tr {
+      background: none;
+    }
+
+    tfoot td {
+      padding: 10px 2px;
+      font-size: 0.8em;
+      font-style: italic;
+      color: #8a97a0;
+    }
+
+    .container {
+        width: 25rem;
+        height: 10%;
+        margin: 0 1rem;
+        position: relative;
+    }
+    .search {
+      font-size: 2.4rem;
+      width: 25rem;
+      height: 5rem;
+      border: none;
+      outline: none;
+      border-radius: 10rem;
+      box-shadow: 0 1rem 2rem rgba(black, .1);
+      padding: 2rem;
+      position: relative;
+      transition: all .2s;
+      transition-delay: .1s;
+    }
+
+  .search:hover {
+      width: 27rem;
+      height: 6rem;
+    }
+
+  .button {
+      height: 2rem;
+      position: absolute;
+      top: 1.5rem;
+      right: 1rem;
+      transition: all .2s;
+      transition-delay: .1s;
+    }
+
+  .button:hover {
+      cursor: pointer;
+    }
+
+  .search:hover + .button {
+      height: 1.5rem;
+      top: 1.8rem;
+      right: 0;
+    }
+
+  .searchr::placeholder {
+      opacity: .5;
+    }
+    footer {
+      clear: both;
+      position: relative;
+      height: 40px;
+      margin-top: -40px;
+      
+    }
+  </style>
+</head>
+<body style="background-color:powderblue;">
+  <div id="stocks">
+  <center><img src="https://www.niftytrader.in/wp-content/uploads/2016/12/31.png" width="180" height="90" alt="zerodha name image"  class="center"></center>
+
+   <h1><marquee behavior="scroll" direction="left">  <p><font color="Green" face="Verdana, Geneva, sans-serif" size="+1">ZERODHA-BSE BHAV COPY</font></p></marquee></h1>
+    <center><div class="container">
+    
+      <input class="search" placeholder="Scrip name..." >
+      <img src="https://www.freeiconspng.com/uploads/find-icon-3.png" alt="Magnifying Glass" class="button">
+    </div></center>
+    <table style="width:70%" bgcolor="green">
+      <thead>
+        <tr>
+          <th >S.NO</th>
+          <th >CODE</th>
+          <th >NAME</th>
+          <th >OPEN</th>
+          <th >HIGH</th>
+          <th >LOW</th>
+          <th >CLOSE</th>
+        </tr>
+      </thead>
+
+        <tbody class="list">
+        {% for item in result %}
+        <tr>
+           <td  >{{loop.index}}</td>
+           <td ><span class="git">{{item.SC_CODE}}</span></td>
+           <td ><span class="name">{{item.SC_NAME}}</span></td>
+           <td >{{item.OPEN}}</td>
+           <td >{{item.HIGH}}</td>
+           <td >{{item.LOW}}</td>
+           <td >{{item.CLOSE}}</td>
+        </tr>
+        {% endfor %}             
+      </tbody>
+    </table></br></br></br>
+  </div>
+  <footer>
+    <center>
+      <p align="left" style="font-family:courier;">WEB PAGE CREATED BY VIKAS CHAUHAN</p>
+      
+    </center>
+  </footer>
+</body>
+<script type="text/javascript">
+  var options = {
+      valueNames: [ 'name' ]
+  };
+  var featureList = new List('stocks', options);  
+</script>
+</html>
